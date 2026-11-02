@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>179.297 presentes digitais: o que 18 meses de dados revelam</title>
+<meta name="description" content="Estudo com 179.297 presentes digitais criados entre abril de 2025 e novembro de 2026: quais surpresas as pessoas escolhem, em que hora do dia criam, e por que 98% não pagam.">
+<meta property="og:title" content="179.297 presentes digitais: o que 18 meses de dados revelam">
+<meta property="og:description" content="Aniversário é 38% de tudo. O pico de criação é sábado às 15h UTC. E só 2% das pessoas pagam.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://sostenesapollo.github.io/digital-gift-study/">
+<style>
+  :root{
+    --paper:#faf8f4; --ink:#16130f; --muted:#6b6357; --rule:#e2ddd2;
+    --accent:#b8361f; --accent-soft:#f0d9d3;
+    --mono: ui-monospace, "SF Mono", "Roboto Mono", Menlo, monospace;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --sans: ui-sans-serif, -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    font-feature-settings:"kern" 1,"liga" 1;
+  }
+  .wrap{max-width:44rem;margin:0 auto;padding:0 1.35rem}
+  header.masthead{border-bottom:1px solid var(--rule);padding:3.5rem 0 2rem;margin-bottom:2.5rem}
+  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 1.1rem}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,5.5vw,2.9rem);line-height:1.12;margin:0 0 1rem;letter-spacing:-.02em}
+  .dek{font-size:1.08rem;color:var(--muted);margin:0;max-width:36rem}
+  .byline{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin-top:1.6rem;letter-spacing:.03em}
+
+  h2{font-family:var(--serif);font-weight:400;font-size:1.45rem;margin:3rem 0 1rem;letter-spacing:-.01em}
+  h3{font-size:.78rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:2.5rem 0 .9rem;font-weight:500}
+  p{margin:0 0 1.15rem}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:2rem 0 3rem}
+  .stat{background:var(--paper);padding:1.15rem 1rem}
+  .stat b{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .stat span{display:block;font-size:.76rem;color:var(--muted);margin-top:.3rem;line-height:1.4}
+
+  figure{margin:2rem 0 2.5rem}
+  figcaption{font-size:.8rem;color:var(--muted);margin-top:.75rem;line-height:1.5}
+  .chart{display:grid;gap:.42rem;margin-top:.5rem}
+  .row{display:grid;grid-template-columns:6.6rem 1fr 4.2rem;align-items:center;gap:.6rem;font-size:.82rem}
+  .row .lbl{font-family:var(--mono);font-size:.74rem;color:var(--muted);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .track{background:var(--accent-soft);height:.85rem;border-radius:1px;overflow:hidden}
+  .row .fill{height:100%;background:var(--accent);border-radius:1px;min-width:1px}
+  .row .val{font-family:var(--mono);font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+  .row.hot .lbl,.row.hot .val{color:var(--accent);font-weight:600}
+  .row.hot .fill{background:var(--ink)}
+
+  blockquote{margin:2rem 0;padding-left:1.15rem;border-left:2px solid var(--accent);font-family:var(--serif);font-size:1.12rem;line-height:1.55;color:#2b2620}
+  blockquote p:last-child{margin-bottom:0}
+
+  .box{border:1px solid var(--rule);background:#fff;padding:1.25rem;margin:2.5rem 0;font-size:.9rem}
+  .box code{font-family:var(--mono);font-size:.78rem;background:var(--paper);padding:.15rem .3rem;border:1px solid var(--rule);border-radius:2px;word-break:break-all}
+  .box h4{margin:0 0 .6rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+
+  table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1.5rem 0}
+  th,td{text-align:left;padding:.55rem .5rem;border-bottom:1px solid var(--rule)}
+  th{font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+
+  footer{border-top:1px solid var(--rule);margin-top:4rem;padding:2rem 0 4rem;font-size:.85rem;color:var(--muted)}
+  .dl{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 0}
+  .dl a{font-family:var(--mono);font-size:.75rem;border:1px solid var(--rule);background:#fff;padding:.42rem .7rem;border-radius:2px;text-decoration:none;color:var(--ink)}
+  .dl a:hover{border-color:var(--accent);color:var(--accent)}
+  @media(max-width:34rem){
+    .row{grid-template-columns:4.6rem 1fr 3.6rem}
+    .row .lbl{font-size:.68rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Estudo de dados · novembro de 2026</p>
+    <h1>179.297 presentes digitais: o que 18 meses de dados dizem sobre a forma como as pessoas se lembram umas das outras</h1>
+    <p class="dek">Aniversário domina. Sábado às 15h UTC é o horário em que o mundo lembra de alguém. E 98% nunca paga nada — o que, para um presente, talvez seja o dado mais importante de todos.</p>
+    <p class="byline">Base: 179.297 páginas de presente criadas no <a href="https://giftsqr.com">Gifts QR</a> entre 12 de abril de 2025 e 2 de novembro de 2026.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="stats">
+    <div class="stat"><b>179.297</b><span>presentes criados em 18 meses</span></div>
+    <div class="stat"><b>96%</b><span>deles nos últimos 6 meses</span></div>
+    <div class="stat"><b>38,4%</b><span>são de aniversário</span></div>
+    <div class="stat"><b>2,0%</b><span>viraram cliente pagante</span></div>
+  </div>
+
+  <h2>O presente digital deixou de ser cartão com GIF</h2>
+
+  <p>Em abril de 2025, uma página de presente digital era quase sempre a mesma coisa: um fundo com estampa, um GIF de bolo e um "parabéns". Dezoito meses e 179 mil páginas depois, o padrão mudou. As pessoas não escolhem mais um <em>cartão</em> — escolhem uma <em>mecânica</em>. Algo que a outra pessoa precisa tocar, abrir, girar ou esperar.</p>
+
+  <p>A distribuição por tipo de surpresa mostra isso com clareza: três formatos concentram 77,9% de tudo que é criado.</p>
+
+  <figure>
+    <h3>Presentes criados por tipo · últimos 12 meses</h3>
+    <div class="chart" id="chart-templates"></div>
+    <figcaption>N = 178.833. Mostrando os 12 formatos mais usados de 34 disponíveis. Os três primeiros somam 139.314 páginas.</figcaption>
+  </figure>
+
+  <blockquote>
+    <p>Aniversário é 38,4% de tudo. Se você somar as duas variações românticas, o amor responde por outros 39,6%.</p>
+    <p>Praticamente todo presente digital é ou "parabéns" ou "eu te amo". Não existe terceira categoria relevante.</p>
+  </blockquote>
+
+  <h2>O crescimento não foi gradual — foi em degraus</h2>
+
+  <p>A série mensal não tem curva suave. Tem três saltos: maio de 2026, julho e agosto. Entre abril e maio a base multiplicou por 5,4 em um mês. Em 31 de julho, um único dia registrou 4.302 páginas criadas.</p>
+
+  <figure>
+    <h3>Presentes criados por mês</h3>
+    <div class="chart" id="chart-months"></div>
+    <figcaption>Novembro de 2026 é parcial (2 dias). A queda de setembro depois do pico de agosto é sazonal, não de produto: agosto concentra férias no hemisfério norte e o início do ciclo de aniversários de fim de ano.</figcaption>
+  </figure>
+
+  <p>96,1% de todo o volume histórico aconteceu nos últimos seis meses. Isso não é tração de marketing — é o formato atingindo massa crítica. Um presente digital só funciona se a pessoa que recebe já viu um antes.</p>
+
+  <h2>A hora em que as pessoas se lembram</h2>
+
+  <p>Este era o dado que eu mais queria ver, e ele contraria a intuição. A imagem popular é a de alguém lembrando do aniversário às 23h47, deitado na cama, em pânico. Não é o que acontece.</p>
+
+  <figure>
+    <h3>Presentes criados por hora do dia · UTC</h3>
+    <div class="chart" id="chart-hours"></div>
+    <figcaption>N = 178.833. Horário em UTC. O pico das 15h UTC corresponde ao meio-dia no horário de Brasília e às 10h em Nova York.</figcaption>
+  </figure>
+
+  <p>O pico é às 15h UTC, com 12.863 páginas. O vale é às 23h UTC, com 3.594 — 3,6 vezes menos. As pessoas criam presentes no meio do dia, não no desespero da madrugada. O comportamento é de <em>planejamento</em>, não de pânico.</p>
+
+  <p>Por dia da semana, sábado lidera (29.778) e domingo vem em segundo (26.789). Fim de semana concentra 31,6% de toda a criação.</p>
+
+  <figure>
+    <h3>Presentes criados por dia da semana</h3>
+    <div class="chart" id="chart-dow"></div>
+    <figcaption>N = 178.833. Segunda a domingo.</figcaption>
+  </figure>
+
+  <h2>O QR code quase não é usado — e isso é a maior oportunidade desperdiçada</h2>
+
+  <p>Das 179.297 páginas criadas, apenas 3.418 (1,9%) geraram um QR code. Ou seja: 98% dos presentes digitais são entregues como link no WhatsApp, e nunca viram objeto físico.</p>
+
+  <p>Quem imprime o QR e entrega em papel não está fazendo a mesma coisa que quem manda um link. Está transformando uma página em um presente que a pessoa pode segurar antes de abrir. É o único passo do processo que a maioria pula.</p>
+
+  <h2>98% não pagam, e isso está certo</h2>
+
+  <p>3.635 das 179.298 contas são pagantes: 2,03%. A leitura fácil é "a conversão é ruim". A leitura correta é outra.</p>
+
+  <p>Um presente digital tem um ciclo de uso curto e emocional. A pessoa chega com uma data específica, resolve em minutos e sai. Cobrar por isso exige que a versão gratuita seja boa o suficiente para alguém querer mandar de novo seis meses depois — e a maioria das pessoas não manda presente de aniversário seis vezes por ano.</p>
+
+  <table>
+    <thead><tr><th>Indicador</th><th class="num">Valor</th></tr></thead>
+    <tbody>
+      <tr><td>Contas pagantes</td><td class="num">3.635</td></tr>
+      <tr><td>Taxa de conversão</td><td class="num">2,03%</td></tr>
+      <tr><td>Contas com mais de um produto</td><td class="num">111</td></tr>
+      <tr><td>Presentes com QR code gerado</td><td class="num">3.418</td></tr>
+      <tr><td>Contas com URL personalizada</td><td class="num">4</td></tr>
+    </tbody>
+  </table>
+
+  <p>O dado mais brutal da tabela é o último: quatro pessoas em 179 mil escolheram uma URL própria. O recurso existe, está pronto, e ninguém usa — porque ninguém sabe que existe, e porque a URL não é o que faz o presente funcionar. É um bom lembrete de que produto construído não é produto descoberto.</p>
+
+  <h2>Metodologia</h2>
+
+  <p>Os números vêm do banco de dados de produção do Gifts QR, agregados em 2 de novembro de 2026. Uma "página de presente" corresponde a um registro criado por um visitante, independentemente de ter sido preenchido, enviado ou aberto por alguém.</p>
+
+  <p>Limitações que importam: é um único produto, em um único mercado principal, sem grupo de controle. Os números medem intenção de criar, não entrega. Não há dado de quantas páginas foram efetivamente abertas pelo destinatário, nem de quanto tempo ficaram abertas. Fuso horário em UTC. A série histórica começa em abril de 2025, quando o produto foi lançado.</p>
+
+  <p>Não há números arredondados para cima, nem projeções. Tudo na página é contagem direta do banco.</p>
+
+  <h2>Dados brutos</h2>
+
+  <p>Todas as séries usadas nos gráficos estão disponíveis em CSV, sem tratamento.</p>
+
+  <div class="dl">
+    <a href="data/monthly.csv">monthly.csv</a>
+    <a href="data/templates.csv">templates.csv</a>
+    <a href="data/hourly.csv">hourly.csv</a>
+    <a href="data/weekday.csv">weekday.csv</a>
+  </div>
+
+  <div class="box">
+    <h4>Citar este estudo</h4>
+    <code>Sóstenes. "179.297 presentes digitais: o que 18 meses de dados dizem sobre a forma como as pessoas se lembram umas das outras". Gifts QR, novembro de 2026. https://sostenesapollo.github.io/digital-gift-study/</code>
+  </div>
+
+  <h2>Contato</h2>
+
+  <p>Para dados segmentados, metodologia detalhada ou comentário: <strong>sostenes@giftsqr.com</strong>. Respondo em até um dia útil e envio o recorte específico que a matéria precisar, incluindo séries por país quando houver volume suficiente.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Estudo produzido por Sóstenes, fundador do <a href="https://giftsqr.com">Gifts QR</a> — 34 formatos de presente digital criados em cerca de três minutos, entregues por link ou QR code.</p>
+    <p>Dados agregados em 2 de novembro de 2026. Nenhum dado individual de usuário é exposto neste estudo.</p>
+  </div>
+</footer>
+
+<script>
+const TEMPLATES = [
+  ["aniversário", 68588],["romântico", 37222],["coração", 33504],["matriz", 7362],
+  ["secreto", 6287],["pedido", 3783],["contagem", 2848],["céu estrelado", 2668],
+  ["túnel", 2073],["raspadinha", 1947],["mãe", 1378],["mixtape", 1294]
+];
+
+const MONTHS = [
+  ["2025-10", 72],["2025-11", 196],["2025-12", 361],["2026-01", 331],
+  ["2026-02", 897],["2026-03", 2251],["2026-04", 2487],["2026-05", 13438],
+  ["2026-06", 17808],["2026-07", 30605],["2026-08", 42822],["2026-09", 20691],
+  ["2026-10", 44658],["2026-11", 2300]
+];
+
+const HOURS = [3968,4679,5550,6259,6438,6839,6919,6909,6913,7364,7655,8036,8905,10177,11383,12863,12695,11806,10300,6671,5100,4112,3697,3594]
+  .map((v, h) => [String(h).padStart(2,"0") + "h", v]);
+
+const DOW = [["seg",23931],["ter",22330],["qua",22898],["qui",23637],["sex",29469],["sáb",29778],["dom",26789]];
+
+const fmt = n => n.toLocaleString("pt-BR");
+
+function render(elId, data, hotKey){
+  const el = document.getElementById(elId);
+  const max = Math.max(...data.map(d => d[1]));
+  el.innerHTML = data.map(([label, value]) => {
+    const pct = (value / max) * 100;
+    const hot = hotKey && label === hotKey ? " hot" : "";
+    return `<div class="row${hot}">
+      <span class="lbl">${label}</span>
+      <span class="track"><span class="fill" style="width:${pct.toFixed(1)}%"></span></span>
+      <span class="val">${fmt(value)}</span>
+    </div>`;
+  }).join("");
+}
+
+render("chart-templates", TEMPLATES);
+render("chart-months", MONTHS);
+render("chart-hours", HOURS, "15h");
+render("chart-dow", DOW, "sáb");
+</script>
+</body>
+</html>
