@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sostenesapollo.github.io/digital-gift-study/sitemap.xml
